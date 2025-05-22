@@ -20,5 +20,5 @@ MonoBehaviour:
   gravityMultiplier: 2
   airControlFactor: 0.5
   lookSensitivity: 2
-  groundCheckDistance: 0.2
-  groundCheckHeight: 0.075
+  groundCheckDistance: 0.5
+  groundCheckHeight: 0.2

@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 moveDirection = transform.right * inputX + transform.forward * inputZ;
         moveDirection.Normalize();
 
-        float targetSpeed = movementConfig.targetMoveSpeed;
+        float targetSpeed = Input.GetKey(KeyCode.LeftShift) ? movementConfig.runSpeed : movementConfig.targetMoveSpeed;
         float rate = isGrounded ? movementConfig.accelerationRate : movementConfig.accelerationRate * movementConfig.airControlFactor;
 
         Vector3 horizontalVelocity = moveDirection * targetSpeed;

@@ -1,10 +1,13 @@
 using UnityEngine;
+using Unity.Cinemachine;
 
 public class BowController : MonoBehaviour
 {
     [SerializeField] private GameObject arrowPrefab;
     [SerializeField] private Transform fireArrow;
     [SerializeField] private ArrowConfig arrowConfig;
+    [SerializeField] private CinemachineCamera defaultCamera;
+    [SerializeField] private CinemachineCamera aimCamera;
 
     private float _chargeTime;
     private bool _isCharging;
@@ -15,6 +18,9 @@ public class BowController : MonoBehaviour
         {
             _isCharging = true;
             _chargeTime = 0f;
+
+            aimCamera.Priority = 20;
+            defaultCamera.Priority = 10;
         }
 
         if (Input.GetButton("Fire1") && _isCharging)
@@ -27,6 +33,9 @@ public class BowController : MonoBehaviour
         {
             FireArrow();
             _isCharging = false;
+
+            aimCamera.Priority = 10;
+            defaultCamera.Priority = 20;
         }
     }
 

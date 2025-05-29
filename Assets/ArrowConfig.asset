@@ -14,9 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 25
   gravity: 9.81
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  obstacleLayer:
-    serializedVersion: 2
-    m_Bits: 512
+  enemyTag: Enemy
+  minSpeed: 10
+  maxSpeed: 50
+  maxChargeTime: 3

@@ -1,5 +1,6 @@
 using UnityEngine;
 using Unity.Cinemachine;
+using UnityEngine.UI;
 
 public class BowController : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class BowController : MonoBehaviour
     [SerializeField] private ArrowConfig arrowConfig;
     [SerializeField] private CinemachineCamera defaultCamera;
     [SerializeField] private CinemachineCamera aimCamera;
+    [SerializeField] private Image crosshairImage;
 
     private float _chargeTime;
     private bool _isCharging;
@@ -21,6 +23,9 @@ public class BowController : MonoBehaviour
 
             aimCamera.Priority = 20;
             defaultCamera.Priority = 10;
+
+            if (crosshairImage != null)
+                crosshairImage.enabled = true;
         }
 
         if (Input.GetButton("Fire1") && _isCharging)
@@ -36,6 +41,9 @@ public class BowController : MonoBehaviour
 
             aimCamera.Priority = 10;
             defaultCamera.Priority = 20;
+
+            if (crosshairImage != null)
+                crosshairImage.enabled = false;
         }
     }
 

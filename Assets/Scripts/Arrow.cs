@@ -6,10 +6,13 @@ public class Arrow : MonoBehaviour
 
     private Vector3 _currentVelocity;
     private bool _hasHit;
+    private float _initialSpeed;
 
     private void Start()
     {
-        _currentVelocity = transform.forward * arrowConfig.speed;
+        float speedToUse = _initialSpeed > 0 ? _initialSpeed : arrowConfig.speed;
+        _currentVelocity = transform.forward * speedToUse;
+
         ArrowManager.Instance?.RegisterArrow(gameObject);
     }
 
@@ -35,5 +38,10 @@ public class Arrow : MonoBehaviour
         }
 
         this.enabled = false;
+    }
+    
+    public void SetInitialSpeed(float speed)
+    {
+        _initialSpeed = speed;
     }
 }
